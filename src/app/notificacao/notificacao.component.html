@@ -1,1 +1,58 @@
-<p>notificacao works!</p>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+
+  <input type="radio"
+         class="btn-check"
+         name="tipoNotificacao"
+         id="radio-email"
+         autocomplete="off"
+         [checked]="notificacaoEscolhida === 'email'"
+         (change)="tipoDenotificacao('email')">
+  <label class="btn btn-outline-primary" for="radio-email">
+    <mat-icon>email</mat-icon>
+    <h4>Email(E)</h4>
+  </label>
+
+  <input type="radio"
+         class="btn-check"
+         name="tipoNotificacao"
+         id="radio-push"
+         autocomplete="off"
+         [checked]="notificacaoEscolhida === 'push'"
+         (change)="tipoDenotificacao('push')">
+  <label class="btn btn-outline-primary" for="radio-push">
+    <mat-icon>computer</mat-icon>
+    <h4>Push(P)</h4>
+  </label>
+
+</div>
+
+<form *ngIf="notificacaoEscolhida === 'email'">
+  <br>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Subject</label>
+    <input type="text" class="form-control" id="assunto" placeholder="Lore ispum">
+  </div>
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+  <textarea class="form-control" id="mensagem" rows="3"></textarea>
+</div>
+<button type="submit" class="btn btn-primary" id="submit">Submit</button>
+</form>
+
+<form *ngIf="notificacaoEscolhida === 'push'" >
+  <br>
+  <div class="mb-3">
+    <label for="titulo" class="form-label">Title</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Lore ispum">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+</form>

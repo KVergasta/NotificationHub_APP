@@ -1,3 +1,33 @@
 :host{
-  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  padding: 5% !important;
+  /* margin-right: 5%; */
+}
+
+.btn-group{
+  /* display: flex !important; */
+  /* margin-right: 50% !important; */
+  border: none;
+}
+
+.btn{
+  background-color: #285A48;
+  color: azure;
+  border: none;
+}
+
+.btn:hover{
+  background-color: #408A71;
+}
+
+#submit{
+  background-color: #2FA084;
+  border: none;
+}
+
+.form{
+  display: flex;
+  margin-left: 50%;
+  margin-right: 50%;
 }
