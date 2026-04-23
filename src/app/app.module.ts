@@ -8,12 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { NotificacaoComponent } from './notificacao/notificacao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from './footer/footer.component';
+import { AdicionalComponent } from './adicional/adicional.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotificacaoComponent
+    NotificacaoComponent,
+    FooterComponent,
+    AdicionalComponent
   ],
   imports: [
     BrowserModule,

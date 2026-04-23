@@ -1,0 +1,26 @@
+/* Define um tamanho fixo para os ícones ficarem nítidos */
+.footer-icon {
+  width: 30px !important;
+  height: auto;
+}
+
+/* Garante que os itens da lista fiquem lado a lado */
+.nav {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Centraliza o conteúdo dentro do link */
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+a{
+  color: rgb(255, 255, 255) !important;
+}

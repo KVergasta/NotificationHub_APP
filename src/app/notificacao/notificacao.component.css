@@ -1,33 +1,85 @@
 :host{
   display: flex;
   flex-direction: column;
-  padding: 5% !important;
+  padding-top: 5%!important;
+  padding-bottom: 5%!important;
+  padding-right: 10% !important;
+  padding-left: 10% !important;
   /* margin-right: 5%; */
 }
 
 .btn-group{
-  /* display: flex !important; */
-  /* margin-right: 50% !important; */
   border: none;
 }
 
 .btn{
-  background-color: #285A48;
-  color: azure;
+  margin-right: 5%;
+  background-color: #EEEEEE;
+  color: rgb(0, 0, 0);
   border: none;
+}
+
+.btn-check{
+  display: none;
 }
 
 .btn:hover{
-  background-color: #408A71;
+    background-color: #929AAB;
+    color: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 10px 0px #2C2C2C;
 }
 
+.btn-check:checked  + .btn, .btn-check:active + .btn, .btn-check:focus + .btn, .btn-check:checked:focus + .btn, .btn-check:active:focus + .btn{
+  background-color: #929AAB;
+  color: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 10px 0px #2C2C2C;
+}
+
+
 #submit{
-  background-color: #2FA084;
+  background-color: #EEEEEE;
+  border: transparent;
+  color: black;
+  width: 100%;
+  border-radius: 20px;
+}
+
+#submit:hover{
+  background-color: #929AAB;
   border: none;
+  color: rgb(255, 255, 255);
 }
 
 .form{
   display: flex;
   margin-left: 50%;
   margin-right: 50%;
+}
+
+.formulario{
+    color: #EEEEEE;
+  background-color: #393E46;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.formulario .btn-group{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+h2{
+  color: #EEEEEE;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 40px;
+  margin-bottom: 3%;
 }

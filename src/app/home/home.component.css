@@ -1,11 +1,3 @@
-img{
-  width: 5% !important;
-  height: auto !important;
-  display: flex;
-}
-
-.nav-link{
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+a{
+  color: rgb(255,255, 255) !important;
 }
