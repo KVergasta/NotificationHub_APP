@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class NotificacaoComponent implements OnInit {
 
   notificacaoEscolhida: string | undefined;
+  isDropdownOpen = false;
+  motivoSelecionado = 'Reason to contact me';
 
   formEmail = new FormGroup({
     email: new FormControl(''),
@@ -16,6 +18,12 @@ export class NotificacaoComponent implements OnInit {
     mensagem: new FormControl(''),
   })
   formPush = new FormGroup({
+    email: new FormControl(''),
+    mensagem: new FormControl('')
+  })
+  formFeedback = new FormGroup({
+    email: new FormControl(''),
+    motivo: new FormControl(''),
     mensagem: new FormControl('')
   })
 
@@ -28,4 +36,13 @@ export class NotificacaoComponent implements OnInit {
   tipoDenotificacao(notificacao:string){
     return this.notificacaoEscolhida = notificacao;
   }
+
+  toggleDropdown() {
+  this.isDropdownOpen = !this.isDropdownOpen;
+}
+
+selecionarMotivo(motivo: string) {
+  this.motivoSelecionado = motivo;
+  this.isDropdownOpen = false;
+}
 }

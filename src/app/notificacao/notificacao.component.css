@@ -127,3 +127,25 @@ h4{
   font-family:'Courier New', Courier, monospace;
   font-size: 20px;
 }
+
+/* Força o dropdown a aparecer acima de tudo e com cores visíveis */
+.dropdown-menu {
+  z-index: 1050 !important;
+  background-color: #393E46 !important; /* Cor do seu formulário */
+  border: 1px solid #7e7d7d !important;
+}
+
+.dropdown-item {
+  color: #EEEEEE !important;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.dropdown-item:hover {
+  background-color: #2C2C2C !important;
+  color: white !important;
+}
+
+/* Garante que o menu apareça quando o Bootstrap adicionar a classe .show */
+.dropdown-menu.show {
+  display: block !important;
+}

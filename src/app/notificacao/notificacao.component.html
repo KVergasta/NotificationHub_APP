@@ -80,17 +80,23 @@
     <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" value="kauvergasta12@gmail.com" readonly>
   </div>
 
-  <div class="dropdown">
-    <label for="dropdownMenuButton1">Subject</label>
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Reason to contact me
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item">Possible error in the system</a></li>
-      <li><a class="dropdown-item">Compliment</a></li>
-      <li><a class="dropdown-item">Possible opportunity (job, collaboration, etc.)</a></li>
-    </ul>
-  </div>
+ <div class="dropdown">
+  <label for="dropdownMenuButton1">Subject</label>
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    (click)="toggleDropdown()"
+    aria-expanded="false">
+    {{motivoSelecionado}}
+  </button>
+
+  <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" (click)="selecionarMotivo('Possible error in the system')">Possible error in the system</a></li>
+    <li><a class="dropdown-item" (click)="selecionarMotivo('Compliment')">Compliment</a></li>
+    <li><a class="dropdown-item" (click)="selecionarMotivo('Possible opportunity (job, collaboration, etc.)')">Possible opportunity (job, collaboration, etc.)</a></li>
+  </ul>
+</div>
 
   <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
