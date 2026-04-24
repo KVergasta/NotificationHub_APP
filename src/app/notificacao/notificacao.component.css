@@ -36,10 +36,19 @@
   background-color: #2C2C2C;
   color: rgb(255, 255, 255);
   box-shadow: inset 0px 0px 10px 0px #fdfafa;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+
 }
 
 
-#submit{
+#submit , button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
   background-color: transparent;
   color: white!important;
   box-shadow: inset 0px 0px 5px 0px #fdfafa;
@@ -48,12 +57,17 @@
   border-radius: 20px;
 }
 
-#submit:hover{
+#submit .mat-icon{
+    margin-left: 2%;
+}
+
+#submit:hover, button:hover{
   background-color: #2C2C2C;
   color: white;
   border-color: #7e7d7d;
   color: rgb(255, 255, 255);
 }
+
 
 .form{
   display: flex;
@@ -88,10 +102,15 @@
   /* font-size: 20px; */
 }
 
-.mb-3 textarea:focus, .mb-3 input:focus, textarea:hover, .mb-3 input:hover{
+.mb-3 textarea:focus, .mb-3 input:focus, textarea:hover, .mb-3 input:hover {
+  transform: scale(1.1);
   background-color: #393E46;
   box-shadow: inset 0px 0px 5px 0px #fdfafa;
   color: #EEEEEE;
+}
+
+.mb-3 textarea:placeholder-shown , .mb-3 input:placeholder-shown, textarea:not(:placeholder-shown) , .mb-3 input:not(:placeholder-shown)  {
+  border-color: 1px solid #00eeff!important;
 }
 
 h2{

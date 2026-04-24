@@ -1,4 +1,4 @@
-<h2>NOTIFICATION HUB</h2>
+<h2>⁂ NOTIFICATION HUB ⁂</h2>
 
 <div class="formulario">
 
@@ -28,6 +28,18 @@
     <h4>Push(P)</h4>
   </label>
 
+  <input type="radio"
+         class="btn-check"
+         name="tipoNotificacao"
+         id="radio-feedback"
+         autocomplete="off"
+         [checked]="notificacaoEscolhida === 'feedback'"
+         (change)="tipoDenotificacao('feedback')">
+  <label class="btn btn-outline-primary" for="radio-feedback">
+    <mat-icon>favorite</mat-icon>
+    <h4>Feedback</h4>
+  </label>
+
 </div>
 
 <form *ngIf="notificacaoEscolhida === 'email'">
@@ -44,7 +56,7 @@
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
   <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..." required></textarea>
 </div>
-<button type="submit" class="btn btn-primary" id="submit">Submit</button>
+  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
 </form>
 
 <form *ngIf="notificacaoEscolhida === 'push'" >
@@ -58,7 +70,33 @@
     <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..."required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
+</form>
+
+<form *ngIf="notificacaoEscolhida === 'feedback'" >
+<br>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" value="kauvergasta12@gmail.com" readonly>
+  </div>
+
+  <div class="dropdown">
+    <label for="dropdownMenuButton1">Subject</label>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Reason to contact me
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item">Possible error in the system</a></li>
+      <li><a class="dropdown-item">Compliment</a></li>
+      <li><a class="dropdown-item">Possible opportunity (job, collaboration, etc.)</a></li>
+    </ul>
+  </div>
+
+  <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+  <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..." required></textarea>
+</div>
+  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
 </form>
 
 </div>

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { AdicionalComponent } from './adicional/adicional.component';
+import { HistoricoComponent } from './historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AdicionalComponent } from './adicional/adicional.component';
     HomeComponent,
     NotificacaoComponent,
     FooterComponent,
-    AdicionalComponent
+    AdicionalComponent,
+    HistoricoComponent,
   ],
   imports: [
     BrowserModule,
