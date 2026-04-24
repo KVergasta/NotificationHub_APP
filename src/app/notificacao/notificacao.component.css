@@ -41,6 +41,11 @@
 
 }
 
+.mb-3 input:disabled, .mb-3 textarea:disabled{
+  background-color: #2C2C2C;
+  color: rgb(114, 114, 114);
+}
+
 
 #submit , button{
   display: flex;

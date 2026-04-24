@@ -76,8 +76,9 @@
 <form *ngIf="notificacaoEscolhida === 'feedback'" >
 <br>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" value="kauvergasta12@gmail.com" readonly>
+    <label for="exampleInputEmail1" class="form-label">Creator email address</label>
+    <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" value="kauvergasta12@gmail.com"  disabled>
+    <p>(Input disabled. It's mean this field doesn't accept changes)</p>
   </div>
 
  <div class="dropdown">
@@ -95,8 +96,15 @@
     <li><a class="dropdown-item" (click)="selecionarMotivo('Possible error in the system')">Possible error in the system</a></li>
     <li><a class="dropdown-item" (click)="selecionarMotivo('Compliment')">Compliment</a></li>
     <li><a class="dropdown-item" (click)="selecionarMotivo('Possible opportunity (job, collaboration, etc.)')">Possible opportunity (job, collaboration, etc.)</a></li>
+    <li><a class="dropdown-item" (click)="selecionarMotivo('Others')">Others</a></li>
   </ul>
 </div>
+
+  <div class="mb-3" *ngIf="motivoSelecionado=='Others'">
+    <br>
+    <label for="titulo" class="form-label">Title</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Lore ispum" required>
+  </div>
 
   <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
