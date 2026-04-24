@@ -5,6 +5,8 @@
   padding-bottom: 5%!important;
   padding-right: 10% !important;
   padding-left: 10% !important;
+    font-family:'Courier New', Courier, monospace;
+
   /* margin-right: 5%; */
 }
 
@@ -14,8 +16,10 @@
 
 .btn{
   margin-right: 5%;
-  background-color: #EEEEEE;
-  color: rgb(0, 0, 0);
+
+    /* box-shadow: 0px 0px 10px 0px #ffffff; */
+  background-color: #2C2C2C;
+  color: rgb(255, 255, 255);
   border: none;
 }
 
@@ -24,29 +28,30 @@
 }
 
 .btn:hover{
-    background-color: #929AAB;
     color: rgb(255, 255, 255);
-  box-shadow: inset 0px 0px 10px 0px #2C2C2C;
+    box-shadow: 0px 0px 10px 0px #ffffff;
 }
 
 .btn-check:checked  + .btn, .btn-check:active + .btn, .btn-check:focus + .btn, .btn-check:checked:focus + .btn, .btn-check:active:focus + .btn{
-  background-color: #929AAB;
+  background-color: #2C2C2C;
   color: rgb(255, 255, 255);
-  box-shadow: inset 0px 0px 10px 0px #2C2C2C;
+  box-shadow: inset 0px 0px 10px 0px #fdfafa;
 }
 
 
 #submit{
-  background-color: #EEEEEE;
-  border: transparent;
+  background-color: transparent;
+  color: white!important;
+  box-shadow: inset 0px 0px 5px 0px #fdfafa;
   color: black;
   width: 100%;
   border-radius: 20px;
 }
 
 #submit:hover{
-  background-color: #929AAB;
-  border: none;
+  background-color: #2C2C2C;
+  color: white;
+  border-color: #7e7d7d;
   color: rgb(255, 255, 255);
 }
 
@@ -57,6 +62,7 @@
 }
 
 .formulario{
+  font-size: 15px;
     color: #EEEEEE;
   background-color: #393E46;
   padding: 5%;
@@ -73,13 +79,32 @@
 }
 
 
+.mb-3 input , textarea{
+  border-color: #7e7d7d;
+  background-color: #393E46;
+  border-radius: 10px;
+  color: #EEEEEE;
+  font-family:'Courier New', Courier, monospace;
+  /* font-size: 20px; */
+}
+
+.mb-3 textarea:focus, .mb-3 input:focus, textarea:hover, .mb-3 input:hover{
+  background-color: #393E46;
+  box-shadow: inset 0px 0px 5px 0px #fdfafa;
+  color: #EEEEEE;
+}
 
 h2{
   color: #EEEEEE;
   text-align: center;
   display: flex;
   justify-content: center;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:'Courier New', Courier, monospace;
   font-size: 40px;
   margin-bottom: 3%;
+}
+
+h4{
+  font-family:'Courier New', Courier, monospace;
+  font-size: 20px;
 }
