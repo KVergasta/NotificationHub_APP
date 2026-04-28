@@ -12,6 +12,11 @@ img{
   width: 5%;
   height: auto;
 }
+
+.iconPostgre{
+  width: 7%;
+}
+
 div{
   background-color: #393E46;
   border: transparent;
