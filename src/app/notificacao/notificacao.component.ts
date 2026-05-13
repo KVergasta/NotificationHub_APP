@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-notificacao',
@@ -12,22 +13,27 @@ export class NotificacaoComponent implements OnInit {
   isDropdownOpen = false;
   motivoSelecionado = 'Reason to contact me';
 
-  formEmail = new FormGroup({
-    email: new FormControl(''),
-    assunto: new FormControl(''),
-    mensagem: new FormControl(''),
-  })
-  formPush = new FormGroup({
-    email: new FormControl(''),
-    mensagem: new FormControl('')
-  })
-  formFeedback = new FormGroup({
-    email: new FormControl(''),
-    motivo: new FormControl(''),
-    mensagem: new FormControl('')
-  })
+  formEmail: FormGroup;
+  formPush: FormGroup;
+  formFeedback: FormGroup;
 
-  constructor() { }
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.formEmail = this.fb.group({
+      address:['', Validators.required],
+      subject:['', Validators.required],
+      message:['', Validators.required]
+    })
+    this.formPush = this.fb.group({
+      title:['', Validators.required],
+      message:['', Validators.required]
+    })
+    this.formFeedback = this.fb.group({
+      address:['kauvergasta12@gmail.com', Validators.required],
+      title:['', Validators.required],
+      message:['', Validators.required]
+    })
+   }
 
   ngOnInit(): void {
     this.notificacaoEscolhida = 'email';
@@ -38,11 +44,20 @@ export class NotificacaoComponent implements OnInit {
   }
 
   toggleDropdown() {
-  this.isDropdownOpen = !this.isDropdownOpen;
-}
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
 
-selecionarMotivo(motivo: string) {
-  this.motivoSelecionado = motivo;
-  this.isDropdownOpen = false;
-}
+  selecionarMotivo(motivo: string) {
+    this.motivoSelecionado = motivo;
+    this.isDropdownOpen = false;
+  }
+
+  salvar(){
+    let dados;
+    if (this.formEmail.valid ) {
+      dados = this.formEmail.value
+    } else if (this.formFeedback.valid) {
+      dados = this.formFeedback.value
+    }
+  }
 }

@@ -10,16 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { AdicionalComponent } from './adicional/adicional.component';
-import { HistoricoComponent } from './historico/historico.component';
+import { ListaComponent } from './lista/lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotificacaoComponent,
     FooterComponent,
     AdicionalComponent,
-    HistoricoComponent,
+    ListaComponent,
+    NotificacaoComponent,
   ],
   imports: [
     BrowserModule,
