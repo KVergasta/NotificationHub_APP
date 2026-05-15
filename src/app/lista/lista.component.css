@@ -1,100 +1,139 @@
-:host{
+:host {
   display: flex;
   flex-direction: column;
-  padding-top: 2%!important;
-  padding-bottom: 5%!important;
-  padding-right: 10% !important;
-  padding-left: 10% !important;
-  /* margin-right: 5%; */
+  padding: 32px 10%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.backGround{
+.backGround {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 800px; /* Alinha o tamanho máximo com o padrão de dashboards */
+  margin: 0 auto;
 }
 
-.backGround h3, button {
-  color: #fdfafa;
-  font-family:'Courier New', Courier, monospace;
-  align-items: center;
+/* Título principal da seção */
+.backGround h3 {
+  color: #EEEEEE;
+  font-size: 28px;
+  font-weight: 600;
   text-align: center;
-  align-content: center;
-  justify-content: center;
+  margin-bottom: 24px;
 }
 
-.backGround h3{
-  font-size: 30px;
+/* Configuração da Lista Ordenada */
+ol {
+  list-style: none; /* Remove os números padrão para termos controle total do layout */
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Cria um espaçamento perfeito entre cada item da lista */
 }
 
-ol li:hover{
-  color: rgb(255, 255, 255);
-  box-shadow: inset 0px 0px 10px 0px #929AAB;
-}
-
-li{
+/* Cada item da lista agora se comporta como um Card Elegante */
+li {
   background-color: #393E46;
-}
-
-li div{
-  color: white;
-}
-
-
-li div p{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-#title{
-  font-size: 15px;
-  color:chartreuse;
-  font-family:'Courier New', Courier, monospace;
-  font-size: large;
-}
-
-li span{
-  width: 100px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  align-content: center;
-  justify-content: center;
-  font-size: 15px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-
-  /* sent */
-  background-color: rgb(10, 97, 61) !important;
-  /* Pending */
-  /* background-color: rgb(170, 152, 49) !important; */
-  /* failed */
-  /* background-color: rgb(155, 14, 14) !important; */
-}
-
-button{
+  border-radius: 8px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  align-content: center;
+  justify-content: space-between; /* Texto na esquerda, Badge na direita */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito de hover moderno e sutil */
+ol li:hover {
+  transform: translateX(4px); /* Desloca levemente para o lado, indicando seleção */
+  border-color: #00ADB5; /* Borda acende com a cor do seu sistema */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Container de textos dentro do item */
+li div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Título do item da lista (Ex: Nome do Hub, ID da Notificação) */
+#title {
+  color: #00ADB5; /* Trocado de chartreuse para o ciano para manter a identidade visual anterior */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Descrição ou corpo do texto do item */
+li div p {
+  color: #B9BBBE; /* Um cinza claro mais suave para o texto secundário */
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Badges / Etiquetas de Status (Estilo Pílula Moderna) */
+li span {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  justify-items: center;
-  background-color: transparent;
-  color: white!important;
-  box-shadow: inset 0px 0px 5px 0px #fdfafa;
-  color: black;
-  background-color: #393E46;
+  padding: 6px 16px;
+  border-radius: 20px; /* Formato de pílula */
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 90px;
+}
+
+/* Variações de Status limpas e profissionais para Dark Mode */
+.status-sent {
+  background-color: rgba(46, 204, 113, 0.15) !important;
+  color: #2ecc71 !important;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.status-pending {
+  background-color: rgba(241, 196, 15, 0.15) !important;
+  color: #f1c40f !important;
+  border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.status-failed {
+  background-color: rgba(231, 76, 60, 0.15) !important;
+  color: #e74c3c !important;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* Botão de Ação Principal (Carregar mais, Atualizar, etc) */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-   border-radius: 20px;
-}
-
-button .mat-icon{
-    margin-left: 2%;
-}
-
-button:hover{
+  padding: 12px;
   background-color: #2C2C2C;
-  color: white;
-  border-color: #7e7d7d;
-  color: rgb(255, 255, 255);
+  color: #FFFFFF !important;
+  border: 1px solid #555A64;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button .mat-icon {
+  margin: 0; /* Removido a porcentagem para evitar desalinhamento */
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #00ADB5;
+  border-color: #00ADB5;
+  box-shadow: 0 4px 12px rgba(0, 173, 181, 0.3);
 }

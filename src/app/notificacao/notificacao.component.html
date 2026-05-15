@@ -9,8 +9,8 @@
          name="tipoNotificacao"
          id="radio-email"
          autocomplete="off"
-         [checked]="notificacaoEscolhida === 'email'"
-         (change)="tipoDenotificacao('email')">
+         [checked]="typeNotification === 'email'"
+         (change)="selectOption('email')">
   <label class="btn btn-outline-primary" for="radio-email">
     <mat-icon>email</mat-icon>
     <h4>Email(E)</h4>
@@ -21,8 +21,8 @@
          name="tipoNotificacao"
          id="radio-push"
          autocomplete="off"
-         [checked]="notificacaoEscolhida === 'push'"
-         (change)="tipoDenotificacao('push')">
+         [checked]="typeNotification === 'push'"
+         (change)="selectOption('push')">
   <label class="btn btn-outline-primary" for="radio-push">
     <mat-icon>computer</mat-icon>
     <h4>Push(P)</h4>
@@ -33,8 +33,8 @@
          name="tipoNotificacao"
          id="radio-feedback"
          autocomplete="off"
-         [checked]="notificacaoEscolhida === 'feedback'"
-         (change)="tipoDenotificacao('feedback')">
+         [checked]="typeNotification === 'feedback'"
+         (change)="selectOption('feedback')">
   <label class="btn btn-outline-primary" for="radio-feedback">
     <mat-icon>favorite</mat-icon>
     <h4>Feedback</h4>
@@ -42,38 +42,38 @@
 
 </div>
 
-<form *ngIf="notificacaoEscolhida === 'email'">
+<form *ngIf="typeNotification === 'email'" [formGroup]="formEmail" (ngSubmit)="saveEmailNotification()">
   <br>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com / example@outlook.com" required>
+    <input type="email" class="form-control" formControlName="infouser" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com / example@outlook.com" required>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Subject</label>
-    <input type="text" class="form-control" id="assunto" placeholder="Lore ispum" required>
+    <input type="text" class="form-control" formControlName="subject" id="subject" placeholder="Lore ispum" required>
   </div>
   <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-  <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..." required></textarea>
+  <textarea class="form-control" id="message" formControlName="message" rows="3" required placeholder="Enter your message here..." required></textarea>
 </div>
-  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
+  <button type="submit" class="btn btn-primary" id="submit"> Submit <mat-icon>send</mat-icon></button>
 </form>
 
-<form *ngIf="notificacaoEscolhida === 'push'" >
+<form *ngIf="typeNotification === 'push'" [formGroup]="formPush">
   <br>
   <div class="mb-3">
     <label for="titulo" class="form-label">Title</label>
-    <input type="text" class="form-control" id="titulo" placeholder="Lore ispum" required>
+    <input type="text" class="form-control" formControlName="title" id="subject" placeholder="Lore ispum" required>
   </div>
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-    <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..."required></textarea>
+    <textarea class="form-control" id="message" rows="3" required placeholder="Enter your message here..."required></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
 </form>
 
-<form *ngIf="notificacaoEscolhida === 'feedback'" >
+<form *ngIf="typeNotification === 'feedback'" [formGroup]="formFeedback">
 <br>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Creator email address</label>
@@ -89,26 +89,26 @@
     id="dropdownMenuButton1"
     (click)="toggleDropdown()"
     aria-expanded="false">
-    {{motivoSelecionado}}
+    {{reasonSelected}}
   </button>
 
   <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" (click)="selecionarMotivo('Possible error in the system')">Possible error in the system</a></li>
-    <li><a class="dropdown-item" (click)="selecionarMotivo('Compliment')">Compliment</a></li>
-    <li><a class="dropdown-item" (click)="selecionarMotivo('Possible opportunity (job, collaboration, etc.)')">Possible opportunity (job, collaboration, etc.)</a></li>
-    <li><a class="dropdown-item" (click)="selecionarMotivo('Others')">Others</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Possible error in the system')">Possible error in the system</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Compliment')">Compliment</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Possible opportunity (job, collaboration, etc.)')">Possible opportunity (job, collaboration, etc.)</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Others')">Others</a></li>
   </ul>
 </div>
 
-  <div class="mb-3" *ngIf="motivoSelecionado=='Others'">
+  <div class="mb-3" *ngIf="reasonSelected =='Others'">
     <br>
     <label for="titulo" class="form-label">Title</label>
-    <input type="text" class="form-control" id="titulo" placeholder="Lore ispum" required>
+    <input type="text" class="form-control" id="subject" placeholder="Lore ispum" required>
   </div>
 
   <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-  <textarea class="form-control" id="mensagem" rows="3" required placeholder="Enter your message here..." required></textarea>
+  <textarea class="form-control" id="message" rows="3" required placeholder="Enter your message here..." required></textarea>
 </div>
   <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
 </form>

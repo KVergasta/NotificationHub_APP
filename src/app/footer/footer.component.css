@@ -1,26 +1,67 @@
-/* Define um tamanho fixo para os ícones ficarem nítidos */
-.footer-icon {
-  width: 30px !important;
-  height: auto;
+/* Container principal do Rodapé (Boa prática de estrutura) */
+.footer-container {
+  background-color: #2C2C2C; /* Mesma base escura da navbar para consistência */
+  padding: 24px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil superior para separação */
 }
 
-/* Garante que os itens da lista fiquem lado a lado */
+/* Lista de navegação/redes sociais */
 .nav {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Garante que os itens quebrem linha em telas muito pequenas (Mobile UX) */
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 8px; /* Controla o espaçamento entre os itens da lista */
 }
 
-/* Centraliza o conteúdo dentro do link */
+/* O link que envolve o ícone/texto */
 .nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
+  color: #B9BBBE !important; /* Cinza claro suave para o estado inicial */
+  text-decoration: none;
+  border-radius: 50%; /* Se for usar apenas ícones, permite criar um fundo circular */
+  transition: all 0.2s ease-in-out;
 }
 
-a{
-  color: rgb(255, 255, 255) !important;
+/* Efeito Hover nos links do rodapé */
+.nav-link:hover,
+.nav-link:focus {
+  color: #00ADB5 !important; /* Acende no ciano padrão do seu sistema */
+  background-color: rgba(0, 173, 181, 0.08); /* Feedback sutil de clique */
+  transform: translateY(-2px); /* Leve flutuação de 2px para dar dinamismo */
+  outline: none;
+}
+
+/* Tamanho e nitidez dos ícones */
+.footer-icon {
+  width: 24px;   /* Tamanho ideal e discreto para ícones de rodapé */
+  height: 24px;
+  object-fit: contain; /* Garante que a imagem não distorça dentro do quadrado */
+  filter: opacity(0.8); /* Deixa o ícone ligeiramente discreto */
+  transition: filter 0.2s ease;
+}
+
+/* Quando o usuário passa o mouse no link, o ícone ganha 100% de nitidez */
+.nav-link:hover .footer-icon {
+  filter: opacity(1);
+}
+
+/* Texto de copyright ou secundário do rodapé */
+.footer-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: #666666;
+  margin: 0;
+  text-align: center;
 }

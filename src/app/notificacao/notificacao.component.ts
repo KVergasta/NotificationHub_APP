@@ -1,26 +1,33 @@
+import { NotificationEntity } from '../../domain/notificacao.model';
+import { NotificationService } from './../../domain/notification.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+// import { StatusNotification } from 'src/domain/statusNotification.enum';
 
 @Component({
   selector: 'app-notificacao',
   templateUrl: './notificacao.component.html',
   styleUrls: ['./notificacao.component.css']
 })
+
 export class NotificacaoComponent implements OnInit {
 
-  notificacaoEscolhida: string | undefined;
+  typeNotification: string | undefined;
   isDropdownOpen = false;
-  motivoSelecionado = 'Reason to contact me';
+  reasonSelected = 'Reason to contact me';
 
   formEmail: FormGroup;
   formPush: FormGroup;
   formFeedback: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder,
+    private http: HttpClient,
+    private notification: NotificationService)
+    {
     this.formEmail = this.fb.group({
-      address:['', Validators.required],
+      infoUser:['', Validators.required],
       subject:['', Validators.required],
       message:['', Validators.required]
     })
@@ -29,35 +36,65 @@ export class NotificacaoComponent implements OnInit {
       message:['', Validators.required]
     })
     this.formFeedback = this.fb.group({
-      address:['kauvergasta12@gmail.com', Validators.required],
+      infoUser:['kauvergasta12@gmail.com', Validators.required],
       title:['', Validators.required],
       message:['', Validators.required]
     })
-   }
+  }
 
   ngOnInit(): void {
-    this.notificacaoEscolhida = 'email';
+    this.typeNotification = 'email';
   }
 
   tipoDenotificacao(notificacao:string){
-    return this.notificacaoEscolhida = notificacao;
+    return this.typeNotification = notificacao;
   }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  selecionarMotivo(motivo: string) {
-    this.motivoSelecionado = motivo;
+  selectOption(option: string) {
+    this.typeNotification = option;
     this.isDropdownOpen = false;
   }
 
-  salvar(){
-    let dados;
-    if (this.formEmail.valid ) {
-      dados = this.formEmail.value
-    } else if (this.formFeedback.valid) {
-      dados = this.formFeedback.value
+  saveEmailNotification(){
+    console.log("formualario valido? ", this.formEmail.valid)
+    if(this.formEmail.valid){
+      const emailRequest: NotificationEntity = {
+        infoUser: this.formEmail.get('infoUser')?.value,
+        subject: this.formEmail.get('subject')?.value,
+        message: this.formEmail.get('message')?.value
+      }
+      this.notification.generatorMsg(emailRequest)
+      .subscribe({
+        next:(response)=> {console.log("Email is sent", response);
+          this.formEmail.reset();
+        }, error: (error) => {console.error("Error",error)}
+      });
+    }
+  }
+
+  savePushNotification(){
+    if(this.formPush.valid){
+      const pushRequest: NotificationEntity = {
+        infoUser: this.formPush.get('infoUser')?.value, // Isso vai ter que ser preenchido de forma diferente - já que o push deve aparecer no navegador do usuário
+        subject: this.formPush.get('title')?.value,
+        message: this.formPush.get('message')?.value
+      }
+      this.notification.generatorMsg(pushRequest);
+    }
+  }
+
+  saveFeedbackNotification(){
+    if(this.formFeedback.valid){
+      const feedbackRequest: NotificationEntity = {
+        infoUser: this.formFeedback.get('infoUser')?.value,
+        subject: this.formFeedback.get('subject')?.value,
+        message: this.formFeedback.get('message')?.value
+      }
+      this.notification.generatorMsg(feedbackRequest);
     }
   }
 }

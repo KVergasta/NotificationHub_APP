@@ -1,22 +1,24 @@
-import { Notification } from './notification.model';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { NotificationEntity } from "./notificacao.model";
 
-@Injectable()
-export class notificationService{
+@Injectable({
+  providedIn: 'root'
+})
+export class NotificationService{
 
   private readonly API ='http://localhost:8000/api/notification';
   constructor(
     private http: HttpClient,
   ){}
 
-  listAll() : Observable<Notification[]>{
-    return this.http.get<Notification[]>(`${this.API}/listNotifications`);
+  listAll() : Observable<NotificationEntity[]>{
+    return this.http.get<NotificationEntity[]>(`${this.API}/listNotifications`);
   }
 
-  generatorMsg(notification: string) : Observable<any>{
-    return this.http.get<Notification[]>(`${this.API}/generator`);
+  generatorMsg(notification: NotificationEntity) : Observable<any>{
+    return this.http.post<any>(`${this.API}/generator`, notification);
   }
 
 

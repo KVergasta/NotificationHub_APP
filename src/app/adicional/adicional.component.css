@@ -1,40 +1,49 @@
-:host{
+:host {
   display: flex;
   flex-direction: column;
-  padding-top: 2%!important;
-  padding-bottom: 5%!important;
+  padding-top: 2% !important;
+  padding-bottom: 5% !important;
   padding-right: 10% !important;
   padding-left: 10% !important;
-  /* margin-right: 5%; */
 }
 
-img{
-  width: 5%;
-  height: auto;
+/* Estilização das imagens/ferramentas */
+img {
+  width: 40px; /* Tamanho fixo para não ficar gigante como na imagem */
+  height: 40px;
+  object-fit: contain;
+  padding: 5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent; /* Borda invisível para evitar que o ícone pule no hover */
 }
 
 .iconPostgre{
-  width: 7%;
+  width: 55px;
+  height: 55px;
 }
 
-div{
+/* Efeito de borda azul ao passar o mouse */
+img:hover, .iconPostgre:hover {
+  border: 2px solid #00eeff; /* A borda azul que você pediu */
+  cursor: pointer;
+}
+
+div {
   background-color: #393E46;
   border: transparent;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-items: center;
   gap: 20px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
-div:hover{
-  color: rgb(255, 255, 255);
-  box-shadow: inset 0px 0px 10px 0px #929AAB;
-}
-
-p{
-  font-family:'Courier New', Courier, monospace;
+p {
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
 }

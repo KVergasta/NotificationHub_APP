@@ -1,9 +1,34 @@
-a{
-  color: rgb(255,255, 255) !important;
-    font-family:'Courier New', Courier, monospace;
+/* Customização da Barra de Navegação */
+.navbar {
+  background-color: #2C2C2C; /* Tom escuro sólido para a barra */
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  /* Sombra escura e realista para dar profundidade sem "estourar" o visual */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Linha sutil na base para delimitar o espaço com elegância */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.navbar{
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/* Links específicos da sua Navbar */
+.navbar a {
+  color: #B9BBBE; /* Um tom de cinza claro para o estado normal, mais confortável que o branco puro */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Feedback visual quando o usuário passa o mouse ou o link está ativo */
+.navbar a:hover,
+.navbar a:focus {
+  color: #00ADB5; /* O ciano tecnológico acende para indicar a interatividade */
+  background-color: rgba(0, 173, 181, 0.08); /* Fundo falso sutil ao redor do link */
+  outline: none;
 }

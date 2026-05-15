@@ -1,156 +1,173 @@
-:host{
+:host {
   display: flex;
   flex-direction: column;
-  padding-top: 5%!important;
-  padding-bottom: 5%!important;
-  padding-right: 10% !important;
-  padding-left: 10% !important;
-    font-family:'Courier New', Courier, monospace;
-
-  /* margin-right: 5%; */
+  padding: 40px 10%; /* Trocado porcentagem superior por valor fixo para evitar distorção */
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-group{
-  border: none;
+/* Centralização correta do container do formulário */
+.form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.btn{
-  margin-right: 5%;
+.formulario {
+  width: 100%;
+  max-width: 600px; /* Impede que o formulário estique infinitamente em telas grandes */
+  font-size: 15px;
+  color: #EEEEEE;
+  background-color: #393E46;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidade */
+}
 
-    /* box-shadow: 0px 0px 10px 0px #ffffff; */
+/* Títulos com tipografia moderna e limpa */
+h2 {
+  color: #EEEEEE;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* Inputs e Textareas Estilo Cyber */
+.mb-3 input,
+.mb-3 textarea {
+  width: 100%;
+  border: 1px solid #555A64;
+  background-color: #2C2C2C; /* Um pouco mais escuro que o fundo para dar contraste */
+  border-radius: 6px;
+  color: #EEEEEE;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  transition: all 0.25s ease; /* Transição suave para estados de hover e focus */
+}
+
+/* Estados do Input: Removido o transform: scale para evitar quebras no layout */
+.mb-3 textarea:focus,
+.mb-3 input:focus,
+.mb-3 textarea:hover,
+.mb-3 input:hover {
   background-color: #2C2C2C;
-  color: rgb(255, 255, 255);
-  border: none;
+  border-color: #00ADB5; /* Tom de ciano tecnológico para indicar foco ativa */
+  box-shadow: 0 0 8px rgba(0, 173, 181, 0.25);
+  outline: none;
 }
 
-.btn-check{
+.mb-3 input:disabled,
+.mb-3 textarea:disabled {
+  background-color: #1F2226;
+  color: #666666;
+  border-color: #333333;
+  cursor: not-allowed;
+}
+
+/* Grupo de Botões (Radios/Checks estilo botões) */
+.formulario .btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Substitui margens individuais por espaçamento controlado */
+  margin-bottom: 16px;
+}
+
+.btn-check {
   display: none;
 }
 
-.btn:hover{
-    color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px 0px #ffffff;
-}
-
-.btn-check:checked  + .btn, .btn-check:active + .btn, .btn-check:focus + .btn, .btn-check:checked:focus + .btn, .btn-check:active:focus + .btn{
+.btn {
   background-color: #2C2C2C;
-  color: rgb(255, 255, 255);
-  box-shadow: inset 0px 0px 10px 0px #fdfafa;
-  transform: scale(1.1);
+  color: #EEEEEE;
+  border: 1px solid #555A64;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
   transition: all 0.2s ease;
-
 }
 
-.mb-3 input:disabled, .mb-3 textarea:disabled{
-  background-color: #2C2C2C;
-  color: rgb(114, 114, 114);
+.btn:hover {
+  color: #FFFFFF;
+  border-color: #00ADB5;
+  box-sizing: border-box;
 }
 
+/* Estado Ativo/Selecionado dos botões de opção */
+.btn-check:checked + .btn,
+.btn-check:active + .btn,
+.btn-check:focus + .btn {
+  background-color: #00ADB5; /* O botão selecionado agora ganha destaque de cor */
+  color: #FFFFFF;
+  border-color: #00ADB5;
+  box-shadow: 0 0 12px rgba(0, 173, 181, 0.4);
+  transform: translateY(-2px); /* Efeito sutil de flutuação em vez de zoom bruto */
+}
 
-#submit , button{
+/* Botão de Envio Principal (Submit) */
+#submit,
+button:not(.btn) {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  justify-items: center;
-  background-color: transparent;
-  color: white!important;
-  box-shadow: inset 0px 0px 5px 0px #fdfafa;
-  color: black;
   width: 100%;
-  border-radius: 20px;
+  padding: 12px;
+  background-color: #00ADB5; /* Cor sólida de destaque para ação principal */
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 24px;
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 16px;
 }
 
-#submit .mat-icon{
-    margin-left: 2%;
+#submit .mat-icon {
+  margin-left: 8px; /* Espaçamento fixo para o ícone */
 }
 
-#submit:hover, button:hover{
-  background-color: #2C2C2C;
-  color: white;
-  border-color: #7e7d7d;
-  color: rgb(255, 255, 255);
+#submit:hover,
+button:not(.btn):hover {
+  background-color: #00c2cb;
+  box-shadow: 0 4px 12px rgba(0, 173, 181, 0.3);
+  transform: translateY(-1px);
 }
 
-
-.form{
-  display: flex;
-  margin-left: 50%;
-  margin-right: 50%;
-}
-
-.formulario{
-  font-size: 15px;
-    color: #EEEEEE;
-  background-color: #393E46;
-  padding: 5%;
-  border-radius: 10px;
-}
-
-.formulario .btn-group{
-  display: flex;
-  align-items: center;
-  align-content: center;
-  flex-direction: row;
-  display: flex;
-  justify-content: center;
-}
-
-
-.mb-3 input , textarea{
-  border-color: #7e7d7d;
-  background-color: #393E46;
-  border-radius: 10px;
-  color: #EEEEEE;
-  font-family:'Courier New', Courier, monospace;
-  /* font-size: 20px; */
-}
-
-.mb-3 textarea:focus, .mb-3 input:focus, textarea:hover, .mb-3 input:hover {
-  transform: scale(1.1);
-  background-color: #393E46;
-  box-shadow: inset 0px 0px 5px 0px #fdfafa;
-  color: #EEEEEE;
-}
-
-.mb-3 textarea:placeholder-shown , .mb-3 input:placeholder-shown, textarea:not(:placeholder-shown) , .mb-3 input:not(:placeholder-shown)  {
-  border-color: 1px solid #00eeff!important;
-}
-
-h2{
-  color: #EEEEEE;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  font-family:'Courier New', Courier, monospace;
-  font-size: 40px;
-  margin-bottom: 3%;
-}
-
-h4{
-  font-family:'Courier New', Courier, monospace;
-  font-size: 20px;
-}
-
-/* Força o dropdown a aparecer acima de tudo e com cores visíveis */
+/* Dropdown corrigido e integrado ao visual */
 .dropdown-menu {
-  z-index: 1050 !important;
-  background-color: #393E46 !important; /* Cor do seu formulário */
-  border: 1px solid #7e7d7d !important;
+  z-index: 1050;
+  background-color: #2C2C2C !important; /* Cor combinando com os inputs */
+  border: 1px solid #555A64 !important;
+  border-radius: 6px;
+  padding: 6px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 .dropdown-item {
   color: #EEEEEE !important;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: system-ui, sans-serif;
+  padding: 8px 16px;
+  transition: background 0.2s ease;
 }
 
 .dropdown-item:hover {
-  background-color: #2C2C2C !important;
-  color: white !important;
+  background-color: #393E46 !important;
+  color: #00ADB5 !important; /* Destaque no hover do item */
 }
 
-/* Garante que o menu apareça quando o Bootstrap adicionar a classe .show */
 .dropdown-menu.show {
   display: block !important;
 }

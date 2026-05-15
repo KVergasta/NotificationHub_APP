@@ -1,8 +1,7 @@
-export interface Notificacao{
+export interface NotificationEntity {
   id?: string;
-  title?: string;
+  subject?: string;
   message?: string;
   infoUser?: string;
   status?: string;
-
 }
