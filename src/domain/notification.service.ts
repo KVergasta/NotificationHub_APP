@@ -17,7 +17,10 @@ export class NotificationService{
     return this.http.get<NotificationEntity[]>(`${this.API}/listNotifications`);
   }
 
-  generatorMsg(notification: NotificationEntity) : Observable<any>{
+  generatorEmail(notification: NotificationEntity) : Observable<any>{
+    return this.http.post<any>(`${this.API}/generator`, notification);
+  }
+  generatorPush(notification: NotificationEntity) : Observable<any>{
     return this.http.post<any>(`${this.API}/generator`, notification);
   }
 

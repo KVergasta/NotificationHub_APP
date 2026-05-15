@@ -1,7 +1,11 @@
+import { ChannelType } from "./channelType.enum";
+import { StatusNotification } from "./statusNotification.enum";
+
 export interface NotificationEntity {
   id?: string;
-  subject?: string;
+  title?: string;
   message?: string;
   infoUser?: string;
-  status?: string;
+  status?: StatusNotification;
+  type?: ChannelType;
 }

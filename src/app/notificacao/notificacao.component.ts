@@ -1,8 +1,13 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { NotificationEntity } from '../../domain/notificacao.model';
 import { NotificationService } from './../../domain/notification.service';
 import { HttpClient } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ChannelType } from 'src/domain/channelType.enum';
+import { Subject } from 'rxjs';
 // import { StatusNotification } from 'src/domain/statusNotification.enum';
 
 @Component({
@@ -37,7 +42,7 @@ export class NotificacaoComponent implements OnInit {
     })
     this.formFeedback = this.fb.group({
       infoUser:['kauvergasta12@gmail.com', Validators.required],
-      title:['', Validators.required],
+      subject:['', Validators.required],
       message:['', Validators.required]
     })
   }
@@ -54,20 +59,29 @@ export class NotificacaoComponent implements OnInit {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  selectOption(option: string) {
-    this.typeNotification = option;
+  selectOption(option: string, event: Event) {
+    event.preventDefault();
     this.isDropdownOpen = false;
+    this.reasonSelected = option;
+
+    this.formFeedback.patchValue({
+      subject: option
+    });
+  }
+
+  channelSelected(option: string){
+    this.typeNotification = option;
   }
 
   saveEmailNotification(){
-    console.log("formualario valido? ", this.formEmail.valid)
     if(this.formEmail.valid){
       const emailRequest: NotificationEntity = {
         infoUser: this.formEmail.get('infoUser')?.value,
-        subject: this.formEmail.get('subject')?.value,
-        message: this.formEmail.get('message')?.value
+        title: this.formEmail.get('subject')?.value,
+        message: this.formEmail.get('message')?.value,
+        type: ChannelType.EMAIL,
       }
-      this.notification.generatorMsg(emailRequest)
+      this.notification.generatorEmail(emailRequest)
       .subscribe({
         next:(response)=> {console.log("Email is sent", response);
           this.formEmail.reset();
@@ -80,21 +94,33 @@ export class NotificacaoComponent implements OnInit {
     if(this.formPush.valid){
       const pushRequest: NotificationEntity = {
         infoUser: this.formPush.get('infoUser')?.value, // Isso vai ter que ser preenchido de forma diferente - já que o push deve aparecer no navegador do usuário
-        subject: this.formPush.get('title')?.value,
-        message: this.formPush.get('message')?.value
+        title: this.formPush.get('title')?.value,
+        message: this.formPush.get('message')?.value,
+        type: ChannelType.PUSH,
       }
-      this.notification.generatorMsg(pushRequest);
+      this.notification.generatorPush(pushRequest);
     }
   }
 
+
   saveFeedbackNotification(){
+    console.log("form valid ", this.formFeedback.valid)
     if(this.formFeedback.valid){
+
       const feedbackRequest: NotificationEntity = {
-        infoUser: this.formFeedback.get('infoUser')?.value,
-        subject: this.formFeedback.get('subject')?.value,
-        message: this.formFeedback.get('message')?.value
+        title: this.formFeedback.get('subject')?.value,
+        message: this.formFeedback.get('message')?.value,
+        type: ChannelType.EMAIL,
       }
-      this.notification.generatorMsg(feedbackRequest);
+      this.notification.generatorEmail(feedbackRequest)
+      .subscribe({
+        next:(response)=> {console.log("Email is sent", response);
+          this.formFeedback.reset();
+          this.formFeedback.patchValue({
+      infoUser: 'kauvergasta12@gmail.com'
+      });
+        }, error: (error) => {console.error("Error",error)}
+      });
     }
   }
 }

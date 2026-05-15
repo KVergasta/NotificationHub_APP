@@ -10,7 +10,7 @@
          id="radio-email"
          autocomplete="off"
          [checked]="typeNotification === 'email'"
-         (change)="selectOption('email')">
+         (change)="channelSelected('email')">
   <label class="btn btn-outline-primary" for="radio-email">
     <mat-icon>email</mat-icon>
     <h4>Email(E)</h4>
@@ -22,7 +22,7 @@
          id="radio-push"
          autocomplete="off"
          [checked]="typeNotification === 'push'"
-         (change)="selectOption('push')">
+         (change)="channelSelected('push')">
   <label class="btn btn-outline-primary" for="radio-push">
     <mat-icon>computer</mat-icon>
     <h4>Push(P)</h4>
@@ -34,7 +34,7 @@
          id="radio-feedback"
          autocomplete="off"
          [checked]="typeNotification === 'feedback'"
-         (change)="selectOption('feedback')">
+         (change)="channelSelected('feedback')">
   <label class="btn btn-outline-primary" for="radio-feedback">
     <mat-icon>favorite</mat-icon>
     <h4>Feedback</h4>
@@ -46,7 +46,7 @@
   <br>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" formControlName="infouser" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com / example@outlook.com" required>
+    <input type="email" class="form-control" formControlName="infoUser" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com / example@outlook.com" required>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Subject</label>
@@ -56,7 +56,7 @@
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
   <textarea class="form-control" id="message" formControlName="message" rows="3" required placeholder="Enter your message here..." required></textarea>
 </div>
-  <button type="submit" class="btn btn-primary" id="submit"> Submit <mat-icon>send</mat-icon></button>
+  <button type="submit" class="btn btn-primary" id="submit" [disabled]="this.formEmail.invalid"> Submit <mat-icon>send</mat-icon></button>
 </form>
 
 <form *ngIf="typeNotification === 'push'" [formGroup]="formPush">
@@ -67,17 +67,17 @@
   </div>
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-    <textarea class="form-control" id="message" rows="3" required placeholder="Enter your message here..."required></textarea>
+    <textarea class="form-control" id="message" formControlName="message" rows="3" required placeholder="Enter your message here..."required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
+  <button type="submit" class="btn btn-primary" id="submit" [disabled]="this.formPush.invalid">Submit <mat-icon>send</mat-icon></button>
 </form>
 
-<form *ngIf="typeNotification === 'feedback'" [formGroup]="formFeedback">
+<form *ngIf="typeNotification === 'feedback'" [formGroup]="formFeedback" (ngSubmit)="saveFeedbackNotification()">
 <br>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Creator email address</label>
-    <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@gmail.com" value="kauvergasta12@gmail.com"  disabled>
+    <input  type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="infoUser" placeholder="example@gmail.com" value="kauvergasta12@gmail.com" readonly>
     <p>(Input disabled. It's mean this field doesn't accept changes)</p>
   </div>
 
@@ -93,24 +93,24 @@
   </button>
 
   <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" (click)="selectOption('Possible error in the system')">Possible error in the system</a></li>
-    <li><a class="dropdown-item" (click)="selectOption('Compliment')">Compliment</a></li>
-    <li><a class="dropdown-item" (click)="selectOption('Possible opportunity (job, collaboration, etc.)')">Possible opportunity (job, collaboration, etc.)</a></li>
-    <li><a class="dropdown-item" (click)="selectOption('Others')">Others</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Possible error in the system', $event)">Possible error in the system</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Compliment', $event)">Compliment</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Possible opportunity (job, collaboration, etc.)', $event)">Possible opportunity (job, collaboration, etc.)</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Others', $event)">Others</a></li>
   </ul>
 </div>
 
   <div class="mb-3" *ngIf="reasonSelected =='Others'">
     <br>
     <label for="titulo" class="form-label">Title</label>
-    <input type="text" class="form-control" id="subject" placeholder="Lore ispum" required>
+    <input type="text" class="form-control"  id="others" placeholder="Lore ispum" required>
   </div>
 
   <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-  <textarea class="form-control" id="message" rows="3" required placeholder="Enter your message here..." required></textarea>
+  <textarea class="form-control" id="message" rows="3" formControlName="message"  required placeholder="Enter your message here..." required></textarea>
 </div>
-  <button type="submit" class="btn btn-primary" id="submit">Submit <mat-icon>send</mat-icon></button>
+  <button type="submit" class="btn btn-primary" id="submit" >Submit <mat-icon>send</mat-icon></button>
 </form>
 
 </div>
