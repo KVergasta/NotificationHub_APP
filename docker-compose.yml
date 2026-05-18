@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  frontend:
+    build: .
+    ports:
+      - "4300:4200" # Mapeia a porta do PC para a do Container
+    volumes:
+      - .:/app
+      - /app/node_modules # Garante que o node_modules do container seja respeitado
+    environment:
+      - NODE_ENV=development
+    command: npm start -- --host 0.0.0.0
