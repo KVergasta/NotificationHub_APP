@@ -8,4 +8,6 @@ export interface NotificationEntity {
   infoUser?: string;
   status?: StatusNotification;
   type?: ChannelType;
+  userIp?: string;
+  date?: string
 }

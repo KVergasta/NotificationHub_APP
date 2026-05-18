@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl: 'http://localhost:8000/api/notification',
+  vapidPublicKey: 'BK_RHeMFHZJ00BzzWD-1EZvYhwulOcmCZI2Uo-yA98UwPLcdvlnY176afvNfRcG_5fXrpHPs7ma3G_l5HcDH7Wg'
 };
 
 /*

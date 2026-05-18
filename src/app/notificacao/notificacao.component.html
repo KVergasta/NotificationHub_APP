@@ -93,7 +93,7 @@
   </button>
 
   <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" (click)="selectOption('Possible error in the system', $event)">Possible error in the system</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('| Possible error in the system', $event)">Possible error in the system</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Compliment', $event)">Compliment</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Possible opportunity (job, collaboration, etc.)', $event)">Possible opportunity (job, collaboration, etc.)</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Others', $event)">Others</a></li>
@@ -103,7 +103,7 @@
   <div class="mb-3" *ngIf="reasonSelected =='Others'">
     <br>
     <label for="titulo" class="form-label">Title</label>
-    <input type="text" class="form-control"  id="others" placeholder="Lore ispum" required>
+    <input type="text" class="form-control"  id="others" placeholder="Lore ispum" formControlName="others" required>
   </div>
 
   <div class="mb-3">

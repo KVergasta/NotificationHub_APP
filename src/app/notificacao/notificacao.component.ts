@@ -1,13 +1,10 @@
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { NotificationEntity } from '../../domain/notificacao.model';
 import { NotificationService } from './../../domain/notification.service';
 import { HttpClient } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ChannelType } from 'src/domain/channelType.enum';
-import { Subject } from 'rxjs';
 // import { StatusNotification } from 'src/domain/statusNotification.enum';
 
 @Component({
@@ -43,6 +40,7 @@ export class NotificacaoComponent implements OnInit {
     this.formFeedback = this.fb.group({
       infoUser:['kauvergasta12@gmail.com', Validators.required],
       subject:['', Validators.required],
+      others:[''],
       message:['', Validators.required]
     })
   }
@@ -104,14 +102,19 @@ export class NotificacaoComponent implements OnInit {
 
 
   saveFeedbackNotification(){
-    console.log("form valid ", this.formFeedback.valid)
     if(this.formFeedback.valid){
 
       const feedbackRequest: NotificationEntity = {
         title: this.formFeedback.get('subject')?.value,
+        infoUser: this.formFeedback.get('infoUser')?.value,
         message: this.formFeedback.get('message')?.value,
         type: ChannelType.EMAIL,
+
       }
+      if (feedbackRequest.title == 'Others') {
+        feedbackRequest.title = this.formFeedback.get('others')?.value
+      }
+
       this.notification.generatorEmail(feedbackRequest)
       .subscribe({
         next:(response)=> {console.log("Email is sent", response);

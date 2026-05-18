@@ -2,16 +2,24 @@
 <div class="backGround">
   <h3>List of notifications</h3>
   <ol class="list-group list-group-numbered">
-    <li class="list-group-item d-flex justify-content-between align-items-start" >
+    <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let item of listNotifications" >
       <div class="ms-2 me-auto">
-        <div class="fw-bold" id="title">Titulo</div>
+        <div class="fw-bold" id="title">Title: {{item.title}}</div>
         <br>
-        <p>assunto da mensagem</p>
+        <p> <strong>Recipient:</strong> {{item.infoUser}}</p>
+        <p> <strong>Message:</strong> {{item.message}}</p>
+        <p> <strong>Date:</strong> {{ item.date | date: 'dd/MM/yyyy HH:mm' }}</p>
     </div>
-    <span class="badge bg-primary rounded-pill">SENT</span>
+    <span class="badge rounded-pill" *ngIf="item.status"
+        [ngStyle]="{
+        'color': '#FFFAF0',
+        'background-color': item.status === 'SENT' ? '#427AB5' : '#E03F4F'
+      }">
+      >{{item.status}}
+    </span>
   </li>
   <br>
 </ol>
-<button>Clean list</button>
+<button (click)="clean()">Clean list</button>
 </div>
 
