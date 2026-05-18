@@ -23,6 +23,9 @@ export class NotificationService{
   generatorPush(notification: NotificationEntity) : Observable<any>{
     return this.http.post<any>(`${this.API}/generator`, notification);
   }
+  todayByIp() : Observable<any>{
+    return this.http.get<any>(`${this.API}/todayByIp`);
+  }
 
 
 }
