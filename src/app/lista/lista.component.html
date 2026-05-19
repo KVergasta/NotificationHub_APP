@@ -6,8 +6,8 @@
       <div class="ms-2 me-auto">
         <div class="fw-bold" id="title">Title: {{item.title}}</div>
         <br>
-        <p> <strong>Recipient:</strong> {{item.infoUser}}</p>
         <p> <strong>Message:</strong> {{item.message}}</p>
+        <p> <strong>Recipient:</strong> {{item.infoUser}}</p>
         <p> <strong>Date:</strong> {{ item.date | date: 'dd/MM/yyyy HH:mm' }}</p>
     </div>
     <span class="badge rounded-pill" *ngIf="item.status"
