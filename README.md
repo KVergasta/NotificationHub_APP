@@ -1,27 +1,79 @@
-# NotificationHubAPP
+# 🅰️ NotificationHub Web Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+Este é o cliente web do **NotificationHub**, um painel SPA (Single Page Application) moderno construído em **Angular 12**. A aplicação fornece uma interface reativa e intuitiva em *Dark Mode* para que administradores e sistemas gerenciem o fluxo de disparos, visualizem históricos de auditoria por IP e assinem serviços de notificações nativas.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 🎨 Recursos da Interface
 
-## Code scaffolding
+* **Formulários Reativos Completos:** Validação em tempo real para múltiplos canais (E-mail, Push Notifications e Feedbacks de contato).
+* **Filtros por Canal Dinâmico:** Alternância de abas fluida para isolar os dados necessários de cada tipo de transmissão.
+* **Componentes de Alerta Inteligentes:** Integração com feedbacks visuais discretos para indicar o andamento das requisições assíncronas do backend.
+* **Suporte a Web Push Nativo:** Configuração de Service Workers para registrar inscrições VAPID diretamente nos navegadores dos usuários.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠️ Principais Dependências Instaladas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Biblioteca | Versão | Função no Projeto |
+| --- | --- | --- |
+| **`@angular/pwa`** | `^12.x` | Adiciona suporte a Service Workers e manifesto web para o recebimento de mensagens em background. |
+| **`ngx-toastr`** | `^14.x` | Renderização de alertas visuais (*Toasts*) elegantes no canto da tela a cada alteração de estado. |
+| **`@angular/forms`** | `^12.x` | Gerenciamento e validação estrita dos dados coletados nos formulários de envio. |
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚀 Desenvolvimento & Comandos Úteis
 
-## Running end-to-end tests
+Certifique-se de instalar as dependências do projeto antes de rodar os scripts de inicialização:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 💻 Servidor de Desenvolvimento
+
+Para subir a aplicação localmente com recarregamento automático a cada alteração de código, execute:
+
+```bash
+ng serve
+
+```
+
+Navegue para `http://localhost:4200/` no seu navegador para interagir com o painel.
+
+### 🧩 Geração de Código (Scaffolding)
+
+O projeto utiliza o Angular CLI estruturado. Para gerar novos arquivos seguindo os padrões de arquitetura, utilize:
+
+```bash
+# Gerar um novo componente
+ng generate component components/nome-do-componente
+
+# Gerar um novo serviço de integração
+ng generate service services/nome-do-serviço
+
+```
+
+### 📦 Compilação de Produção (Build)
+
+Para gerar os artefatos de distribuição otimizados e buildados para produção, execute:
+
+```bash
+ng build
+
+```
+
+Os arquivos gerados serão salvos de forma compactada dentro do diretório `dist/`.
+
+---
+
+## ⚙️ Conexão com o Backend (CORS)
+
+Por padrão, este frontend está configurado para consumir a API do gateway na porta `8000`. Certifique-se de que o backend Spring Boot adicionou a origem deste cliente na anotação de controle:
+
+```java
+@CrossOrigin(origins = "http://localhost:4200")
+
+```

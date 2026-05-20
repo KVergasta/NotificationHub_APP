@@ -92,7 +92,7 @@ export class NotificacaoComponent implements OnInit {
     if(this.formPush.valid){
       const pushRequest: NotificationEntity = {
         infoUser: this.formPush.get('infoUser')?.value, // Isso vai ter que ser preenchido de forma diferente - já que o push deve aparecer no navegador do usuário
-        title: this.formPush.get('title')?.value,
+        title:  this.formPush.get('title')?.value,
         message: this.formPush.get('message')?.value,
         type: ChannelType.PUSH,
       }
