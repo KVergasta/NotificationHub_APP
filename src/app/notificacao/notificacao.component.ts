@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ChannelType } from 'src/domain/channelType.enum';
-// import { StatusNotification } from 'src/domain/statusNotification.enum';
+import { messaging } from '../../configs/firebase.config';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-notificacao',
@@ -126,4 +127,25 @@ export class NotificacaoComponent implements OnInit {
       });
     }
   }
+
+  requestPermission(){
+    messaging.getToker({vapidkey: envorioment.firebaseConfig.vapidkey})
+    .then((currentToken) => {    
+      if(curentToken){
+          console.log(currentToken);
+      }//fim do if 
+      else{
+        console.log('Token inválido. Solicite uma nova permissão para gerar o token');
+      }
+    }).catch((err) => {
+        console.log(err);
+      });
+  }
+
+  listen(){
+    messaging.onMessage((incomingMessage)=>{
+    console.log(incomingMessage);
+    })
+  }
+
 }

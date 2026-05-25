@@ -77,3 +77,5 @@ Por padrão, este frontend está configurado para consumir a API do gateway na p
 @CrossOrigin(origins = "http://localhost:4200")
 
 ```
+
+Link tutorial : https://sunnyskai.medium.com/implement-push-notification-using-firebase-cloud-messaging-api-v1-in-angular-and-spring-boot-18562dffbfc3

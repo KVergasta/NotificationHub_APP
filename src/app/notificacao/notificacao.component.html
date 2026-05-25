@@ -59,7 +59,7 @@
   <button type="submit" class="btn btn-primary" id="submit" [disabled]="this.formEmail.invalid"> Submit <mat-icon>send</mat-icon></button>
 </form>
 
-<form *ngIf="typeNotification === 'push'" [formGroup]="formPush">
+<form *ngIf="typeNotification === 'push'" [formGroup]="formPush" (ngSubmit)="savePushNotification()">
   <br>
   <div class="mb-3">
     <label for="titulo" class="form-label">Title</label>
@@ -93,7 +93,7 @@
   </button>
 
   <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" (click)="selectOption('| Possible error in the system', $event)">Possible error in the system</a></li>
+    <li><a class="dropdown-item" (click)="selectOption('Possible error in the system', $event)">Possible error in the system</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Compliment', $event)">Compliment</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Possible opportunity (job, collaboration, etc.)', $event)">Possible opportunity (job, collaboration, etc.)</a></li>
     <li><a class="dropdown-item" (click)="selectOption('Others', $event)">Others</a></li>
