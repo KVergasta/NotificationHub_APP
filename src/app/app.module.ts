@@ -15,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { messaging } from "../configs/firebase.config";
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { messaging } from "../configs/firebase.config";
     NgbModule,
     MatIconModule,
     BrowserAnimationsModule,
-    NotificacaoComponent,
+    // NotificacaoComponent,
     ReactiveFormsModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

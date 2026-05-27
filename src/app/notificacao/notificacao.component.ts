@@ -5,8 +5,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ChannelType } from 'src/domain/channelType.enum';
-import { messaging } from '../../configs/firebase.config';
 import { environment } from '../../environments/environment';
+import { initializeApp } from 'firebase/app';
+import { getMessaging, getToken, onMessage } from 'firebase/messaging';
+
+// Inicializa o app e o serviço de mensageria para o TypeScript reconhecer
+const app = initializeApp(environment.firebaseConfig);
+const messaging = getMessaging(app);
 
 @Component({
   selector: 'app-notificacao',
@@ -48,6 +53,8 @@ export class NotificacaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.typeNotification = 'email';
+    this.requestPermission();
+    this.listen();
   }
 
   tipoDenotificacao(notificacao:string){
@@ -129,21 +136,21 @@ export class NotificacaoComponent implements OnInit {
   }
 
   requestPermission(){
-    messaging.getToker({vapidkey: envorioment.firebaseConfig.vapidkey})
-    .then((currentToken) => {    
-      if(curentToken){
+    getToken(messaging, { vapidKey: environment.firebaseConfig.vapidKey })
+    .then((currentToken: any) => {
+      if(currentToken){
           console.log(currentToken);
-      }//fim do if 
+      }//fim do if
       else{
         console.log('Token inválido. Solicite uma nova permissão para gerar o token');
       }
-    }).catch((err) => {
+    }).catch((err: any) => {
         console.log(err);
       });
   }
 
   listen(){
-    messaging.onMessage((incomingMessage)=>{
+    onMessage(messaging, (incomingMessage: any)=>{
     console.log(incomingMessage);
     })
   }
