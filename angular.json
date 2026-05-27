@@ -29,8 +29,11 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/manifest.json",
-              "src/firebase-messaging-sw.js"
+              {
+                "glob": "firebase-messaging-sw.js",
+                "input": "src/configs/",
+                "output": "/"
+              }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",

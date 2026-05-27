@@ -24,10 +24,14 @@ export class NotificacaoComponent implements OnInit {
   typeNotification: string | undefined;
   isDropdownOpen = false;
   reasonSelected = 'Reason to contact me';
+  user: string = 'USER_PUSH';
 
   formEmail: FormGroup;
   formPush: FormGroup;
   formFeedback: FormGroup;
+
+
+
 
 
   constructor(private fb: FormBuilder,
@@ -40,6 +44,7 @@ export class NotificacaoComponent implements OnInit {
       message:['', Validators.required]
     })
     this.formPush = this.fb.group({
+      infoUser:[this.user, Validators.required],
       title:['', Validators.required],
       message:['', Validators.required]
     })
@@ -80,7 +85,8 @@ export class NotificacaoComponent implements OnInit {
   }
 
   saveEmailNotification(){
-    if(this.formEmail.valid){
+
+    if(this.emailValid()){
       const emailRequest: NotificationEntity = {
         infoUser: this.formEmail.get('infoUser')?.value,
         title: this.formEmail.get('subject')?.value,
@@ -96,6 +102,11 @@ export class NotificacaoComponent implements OnInit {
     }
   }
 
+  emailValid(){
+    let valido: boolean = this.formEmail.valid && this.formEmail.get('infoUser')?.value.includes('@') && this.formEmail.get('infoUser')?.value.includes('.com');
+    return valido;
+  }
+
   savePushNotification(){
     if(this.formPush.valid){
       const pushRequest: NotificationEntity = {
@@ -104,12 +115,20 @@ export class NotificacaoComponent implements OnInit {
         message: this.formPush.get('message')?.value,
         type: ChannelType.PUSH,
       }
-      this.notification.generatorPush(pushRequest);
+      this.notification.generatorPush(pushRequest).subscribe({
+        next:(response)=> {console.log("Push is sent", response);
+          this.formPush.reset();
+          this.formPush.patchValue({
+            infoUser: this.user
+          });
+        }, error: (error) => {console.error("Error",error)}
+      });
     }
   }
 
-
   saveFeedbackNotification(){
+    console.log(this.formFeedback.value);
+    console.log(this.formFeedback.valid);
     if(this.formFeedback.valid){
 
       const feedbackRequest: NotificationEntity = {
@@ -117,10 +136,9 @@ export class NotificacaoComponent implements OnInit {
         infoUser: this.formFeedback.get('infoUser')?.value,
         message: this.formFeedback.get('message')?.value,
         type: ChannelType.EMAIL,
-
       }
       if (feedbackRequest.title == 'Others') {
-        feedbackRequest.title = this.formFeedback.get('others')?.value
+        feedbackRequest.title = this.formFeedback.get('others')?.value;
       }
 
       this.notification.generatorEmail(feedbackRequest)
@@ -135,24 +153,30 @@ export class NotificacaoComponent implements OnInit {
     }
   }
 
-  requestPermission(){
-    getToken(messaging, { vapidKey: environment.firebaseConfig.vapidKey })
-    .then((currentToken: any) => {
-      if(currentToken){
-          console.log(currentToken);
-      }//fim do if
-      else{
-        console.log('Token inválido. Solicite uma nova permissão para gerar o token');
-      }
-    }).catch((err: any) => {
-        console.log(err);
-      });
+  requestPermission() {
+    navigator.serviceWorker.ready.then((registration) => {
+      getToken(messaging, { vapidKey: environment.firebaseConfig.vapidKey })
+        .then((currentToken: any) => {
+          this.user = currentToken;
+          if (currentToken) {
+            console.log("Seu Token Firebase:", currentToken);
+          } else {
+            console.log('Token inválido. Solicite uma nova permissão para gerar o token');
+          }
+        })
+        .catch((err: any) => {
+          console.log("Erro ao buscar o token:", err);
+        });
+
+    }).catch((err) => {
+      console.error("Service Worker não ficou pronto a tempo:", err);
+    });
   }
 
   listen(){
     onMessage(messaging, (incomingMessage: any)=>{
-    console.log(incomingMessage);
+    // console.log(incomingMessage);
+    alert(`[${incomingMessage.notification.title}]: ${incomingMessage.notification.body}`);
     })
   }
-
 }

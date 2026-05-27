@@ -1,21 +1,33 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Importa os scripts do Firebase Service Worker SDK
+importScripts('https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js');
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Configuração do Firebase (Use as mesmas chaves do seu environment.ts)
 const firebaseConfig = {
-  apiKey: "AIzaSyC-IGwzIqCC2mpXJxxCCjhw4eVkzNdIXog",
+  apiKey: "AiZaSyC-IGwzIQcC2mpXJxxccjhw4eVkzNdIXog",
   authDomain: "notificationhub-d9fb5.firebaseapp.com",
   projectId: "notificationhub-d9fb5",
   storageBucket: "notificationhub-d9fb5.firebasestorage.app",
-  messagingSenderId: "791895927795",
-  appId: "1:791895927795:web:0f76812b85b5d9709fc086",
+  messagingSenderId: "79189527795",
+  appId: "1:79189527795:web:0f76812b85b5d9709fc086",
   measurementId: "G-V1Y7QH4S3L"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// Inicializa o app Firebase no escopo do Service Worker
+firebase.initializeApp(firebaseConfig);
+
+// Instancia o serviço de mensageria de segundo plano
+const messaging = firebase.messaging();
+
+// Opcional: Trata notificações em segundo plano se necessário
+messaging.onBackgroundMessage((payload) => {
+  console.log('[firebase-messaging-sw.js] Mensagem em segundo plano recebida: ', payload);
+
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: '/assets/icons/icon-96x96.png'
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});

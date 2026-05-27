@@ -70,7 +70,7 @@
     <textarea class="form-control" id="message" formControlName="message" rows="3" required placeholder="Enter your message here..."required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary" id="submit" [disabled]="this.formPush.invalid">Submit <mat-icon>send</mat-icon></button>
+  <button type="submit" class="btn btn-primary" id="submit" [disabled]="this.formPush.invalid ">Submit <mat-icon>send</mat-icon></button>
 </form>
 
 <form *ngIf="typeNotification === 'feedback'" [formGroup]="formFeedback" (ngSubmit)="saveFeedbackNotification()">
