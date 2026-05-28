@@ -127,7 +127,7 @@ export class NotificacaoComponent implements OnInit {
 
       this.notification.generatorPush(pushRequest).subscribe({
         next: (response) => {
-          this.toastr.show(this.formPush.get('title')?.value, this.formPush.get('message')?.value);
+          this.toastr.show(this.formPush.get('message')?.value, this.formPush.get('title')?.value);
           this.formPush.reset();
           // Mantém o token preenchido no formulário para novos testes sem precisar recarregar
           this.formPush.patchValue({ infoUser: tokenAtual });
