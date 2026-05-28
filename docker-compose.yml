@@ -3,7 +3,7 @@ services:
   frontend:
     build: .
     ports:
-      - "4300:4300" # Mapeia a porta do PC para a do Container
+      - "4300:4200" # Mapeia a porta do PC para a do Container
     volumes:
       - .:/app
       - /app/node_modules # Garante que o node_modules do container seja respeitado
