@@ -1,4 +1,7 @@
+@import 'ngx-toastr/toastr';
+
 /* You can add global styles to this file, and also import other style files */
+
 body{
   background-color: #1E201E;
   color: #ECDFCC ;
@@ -6,3 +9,51 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* --- ESTILIZAÇÃO GLOBAL DO TOASTR (VERSÃO CYBER/NOTIFICATOR) --- */
+
+/* Forçar o balão a flutuar no canto superior direito por cima de tudo */
+.toast-container {
+  position: fixed !important;
+  z-index: 999999 !important;
+  top: 24px !important;
+  right: 24px !important;
+}
+
+/* Customização do card de alerta - Integrado ao tema escuro do App */
+.toast-container .ngx-toastr {
+  background-color: #393E46 !important; /* Mesma cor dos seus cards do formulário */
+  color: #EEEEEE !important;            /* Texto claro padrão do seu sistema */
+  border: 1px solid #00eeff !important;  /* Borda sutil em Ciano para dar o tom tecnológico */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important; /* Sombra escura realista */
+  border-radius: 8px !important;         /* Arredondamento padrão do seu app */
+  padding: 16px 20px 16px 50px !important;
+  opacity: 0.98 !important;
+
+  /* Fonte moderna do sistema para alta legibilidade */
+  font-family: system-ui, -apple-system, sans-serif !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Modificar a cor do título principal - Usando o Ciano de Destaque */
+.toast-title {
+  color: #00eeff !important;            /* Título brilhando em Ciano */
+  font-family: 'Courier New', Courier, monospace !important; /* Estilo terminal */
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Modificar o texto da mensagem descritiva */
+.toast-message {
+  font-family: system-ui, -apple-system, sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #B9BBBE !important;            /* Cinza suave para a mensagem descritiva */
+  opacity: 1 !important;
+}
+
+/* Ajuste opcional para o ícone padrão do toastr não colidir com o texto */
+.toast-container .ngx-toastr::before {
+  color: #00eeff !important;            /* Força os ícones internos a seguirem o ciano */
+}

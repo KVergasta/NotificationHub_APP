@@ -4,12 +4,12 @@ importScripts('https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-comp
 
 // Configuração do Firebase (Use as mesmas chaves do seu environment.ts)
 const firebaseConfig = {
-  apiKey: "AiZaSyC-IGwzIQcC2mpXJxxccjhw4eVkzNdIXog",
+  apiKey: "AIzaSyC-IGwzIqCC2mpXJxxCCjhw4eVkzNdIXog",
   authDomain: "notificationhub-d9fb5.firebaseapp.com",
   projectId: "notificationhub-d9fb5",
   storageBucket: "notificationhub-d9fb5.firebasestorage.app",
-  messagingSenderId: "79189527795",
-  appId: "1:79189527795:web:0f76812b85b5d9709fc086",
+  messagingSenderId: "791895927795",
+  appId: "1:791895927795:web:0f76812b85b5d9709fc086",
   measurementId: "G-V1Y7QH4S3L"
 };
 

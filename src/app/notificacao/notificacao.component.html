@@ -4,6 +4,18 @@
 
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
+    <input type="radio"
+         class="btn-check"
+         name="tipoNotificacao"
+         id="radio-push"
+         autocomplete="off"
+         [checked]="typeNotification === 'push'"
+         (change)="channelSelected('push')">
+  <label class="btn btn-outline-primary" for="radio-push">
+    <mat-icon>computer</mat-icon>
+    <h4>Push(P)</h4>
+  </label>
+
   <input type="radio"
          class="btn-check"
          name="tipoNotificacao"
@@ -14,18 +26,6 @@
   <label class="btn btn-outline-primary" for="radio-email">
     <mat-icon>email</mat-icon>
     <h4>Email(E)</h4>
-  </label>
-
-  <input type="radio"
-         class="btn-check"
-         name="tipoNotificacao"
-         id="radio-push"
-         autocomplete="off"
-         [checked]="typeNotification === 'push'"
-         (change)="channelSelected('push')">
-  <label class="btn btn-outline-primary" for="radio-push">
-    <mat-icon>computer</mat-icon>
-    <h4>Push(P)</h4>
   </label>
 
   <input type="radio"

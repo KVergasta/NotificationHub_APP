@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import { environment } from '../environments/environment';
     NgbModule,
     MatIconModule,
     BrowserAnimationsModule,
-    // NotificacaoComponent,
+    // removed NotificacaoComponent from imports (it's a declaration, not an NgModule)
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -41,7 +44,6 @@ import { environment } from '../environments/environment';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
