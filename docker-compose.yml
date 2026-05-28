@@ -9,4 +9,4 @@ services:
       - /app/node_modules # Garante que o node_modules do container seja respeitado
     environment:
       - NODE_ENV=development
-    command: npm start -- --host 0.0.0.0
+    command: npm start
