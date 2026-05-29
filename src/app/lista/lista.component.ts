@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class ListaComponent implements OnInit,OnDestroy  {
 
   notification!: NotificationEntity;
+  listHidden: boolean = true;
   listNotifications: NotificationEntity[] = [];
   private subSubscription!: Subscription;
 
@@ -31,7 +32,13 @@ export class ListaComponent implements OnInit,OnDestroy  {
   }
 
   clean(){
+    this.listHidden = false;
     this.listNotifications=[];
+  }
+
+  show(){
+    this.listHidden = true;
+    window.location.reload();
   }
 
   ngOnDestroy(): void{

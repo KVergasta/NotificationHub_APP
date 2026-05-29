@@ -21,6 +21,7 @@
   </li>
   <br>
 </ol>
-<button (click)="clean()">Clean list</button>
+<button *ngIf="listHidden" (click)="clean()">Hide list</button>
+<button *ngIf="!listHidden" (click)="show()">Show list</button>
 </div>
 
