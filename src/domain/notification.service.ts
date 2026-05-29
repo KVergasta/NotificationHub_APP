@@ -8,7 +8,8 @@ import { NotificationEntity } from "./notificacao.model";
   providedIn: 'root'
 })
 export class NotificationService{
-  private readonly API ='http://localhost:8000/api/notification';
+  // private readonly API_DEV ='http://localhost:8000/api/notification';
+  private readonly API ='https://notificationhubapi.onrender.com/api/notification';
   // subject para atualizar a lista de forma automática
   private refreshSignal$ = new BehaviorSubject<void>(undefined);
 
