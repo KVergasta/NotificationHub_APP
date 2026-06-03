@@ -1,0 +1,101 @@
+{
+  "configVersion": 1,
+  "timestamp": 1780498261018,
+  "index": "/PortifolioKV/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/PortifolioKV/firebase-messaging-sw.js",
+        "/PortifolioKV/index.html",
+        "/PortifolioKV/main.75a56628c91c39698d62.js",
+        "/PortifolioKV/manifest.webmanifest",
+        "/PortifolioKV/polyfills.f02212b0e551c5fe3981.js",
+        "/PortifolioKV/runtime.0ef482480e53f93f707c.js",
+        "/PortifolioKV/scripts.6b8eac2edd2850a6853e.js",
+        "/PortifolioKV/styles.6605fc259c00bcc1588c.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/PortifolioKV/assets/angular.png",
+        "/PortifolioKV/assets/docker.png",
+        "/PortifolioKV/assets/gitHub.png",
+        "/PortifolioKV/assets/icons/icon-128x128.png",
+        "/PortifolioKV/assets/icons/icon-144x144.png",
+        "/PortifolioKV/assets/icons/icon-152x152.png",
+        "/PortifolioKV/assets/icons/icon-192x192.png",
+        "/PortifolioKV/assets/icons/icon-384x384.png",
+        "/PortifolioKV/assets/icons/icon-512x512.png",
+        "/PortifolioKV/assets/icons/icon-72x72.png",
+        "/PortifolioKV/assets/icons/icon-96x96.png",
+        "/PortifolioKV/assets/kafka.png",
+        "/PortifolioKV/assets/linkedin.png",
+        "/PortifolioKV/assets/postegresql.png",
+        "/PortifolioKV/assets/spring.png",
+        "/PortifolioKV/assets/wgitHub.png",
+        "/PortifolioKV/assets/wlinkedin.webp"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/PortifolioKV/assets/angular.png": "09f63f4afbbc5620e41b92b3ed1412c287a6cce5",
+    "/PortifolioKV/assets/docker.png": "773daab84558e0dd62dba6081566f0e12982c97c",
+    "/PortifolioKV/assets/gitHub.png": "beb66a738f4f315ed014efacb0723ecfc116611c",
+    "/PortifolioKV/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/PortifolioKV/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/PortifolioKV/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/PortifolioKV/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/PortifolioKV/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/PortifolioKV/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/PortifolioKV/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/PortifolioKV/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/PortifolioKV/assets/kafka.png": "d4bddd096714aca554c58c6a132ac55ccb228219",
+    "/PortifolioKV/assets/linkedin.png": "6ce039f6bbbb49abfa3bdcaffa854aae1df169e4",
+    "/PortifolioKV/assets/postegresql.png": "ab8928173593fd938cbb091440a04ee4eca70920",
+    "/PortifolioKV/assets/spring.png": "52a096481557a4358c7b51e53c3d8faee9300de6",
+    "/PortifolioKV/assets/wgitHub.png": "a9bd521cb1506d3dba2af1dd561c094efa9608ad",
+    "/PortifolioKV/assets/wlinkedin.webp": "be094e2c62c0b863205d9ef804c9b70471d35ea0",
+    "/PortifolioKV/firebase-messaging-sw.js": "cb2fcf1e66c429d4b3f19c63b430f3ddb58024f0",
+    "/PortifolioKV/index.html": "68a8495388e2d11bfc44b77714a5d27b96ba50ad",
+    "/PortifolioKV/main.75a56628c91c39698d62.js": "6a647e4b3941fd3d491d45a14e346b730482ce66",
+    "/PortifolioKV/manifest.webmanifest": "72303d378166aaf1b6ef978909d3f178ab5c46c3",
+    "/PortifolioKV/polyfills.f02212b0e551c5fe3981.js": "b1452125947953666095a37e17a751ef04946bb0",
+    "/PortifolioKV/runtime.0ef482480e53f93f707c.js": "2833d82390e59a5b15c1c2e21a7e21075ff597b5",
+    "/PortifolioKV/scripts.6b8eac2edd2850a6853e.js": "2f50efa1537500afc8eb6423a1553b61262db0f9",
+    "/PortifolioKV/styles.6605fc259c00bcc1588c.css": "7173c90b0c1570a09341ae46b10daa2d1db4e228"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
