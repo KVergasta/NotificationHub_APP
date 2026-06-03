@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1780498755077,
+  "timestamp": 1780499394727,
   "index": "/PortifolioKV/index.html",
   "assetGroups": [
     {
@@ -71,7 +71,7 @@
     "/PortifolioKV/assets/wgitHub.png": "a9bd521cb1506d3dba2af1dd561c094efa9608ad",
     "/PortifolioKV/assets/wlinkedin.webp": "be094e2c62c0b863205d9ef804c9b70471d35ea0",
     "/PortifolioKV/firebase-messaging-sw.js": "cb2fcf1e66c429d4b3f19c63b430f3ddb58024f0",
-    "/PortifolioKV/index.html": "1feae9b30886afb2468dbab52b529a3d3a3fd3ec",
+    "/PortifolioKV/index.html": "fe500c587eddb8058309e5e9f71670d8e0fdfc4d",
     "/PortifolioKV/main.75a56628c91c39698d62.js": "6a647e4b3941fd3d491d45a14e346b730482ce66",
     "/PortifolioKV/manifest.webmanifest": "72303d378166aaf1b6ef978909d3f178ab5c46c3",
     "/PortifolioKV/polyfills.f02212b0e551c5fe3981.js": "b1452125947953666095a37e17a751ef04946bb0",
