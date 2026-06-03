@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1780430254041,
+  "timestamp": 1780445988354,
   "index": "https://kvergasta.github.io/NotificationHub_APP/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://kvergasta.github.io/NotificationHub_APP/firebase-messaging-sw.js",
         "https://kvergasta.github.io/NotificationHub_APP/index.html",
-        "https://kvergasta.github.io/NotificationHub_APP/main.b12d36fcb09628c3ecb8.js",
+        "https://kvergasta.github.io/NotificationHub_APP/main.75a56628c91c39698d62.js",
         "https://kvergasta.github.io/NotificationHub_APP/manifest.webmanifest",
         "https://kvergasta.github.io/NotificationHub_APP/polyfills.f02212b0e551c5fe3981.js",
         "https://kvergasta.github.io/NotificationHub_APP/runtime.0ef482480e53f93f707c.js",
@@ -71,8 +71,8 @@
     "https://kvergasta.github.io/NotificationHub_APP/assets/wgitHub.png": "a9bd521cb1506d3dba2af1dd561c094efa9608ad",
     "https://kvergasta.github.io/NotificationHub_APP/assets/wlinkedin.webp": "be094e2c62c0b863205d9ef804c9b70471d35ea0",
     "https://kvergasta.github.io/NotificationHub_APP/firebase-messaging-sw.js": "cb2fcf1e66c429d4b3f19c63b430f3ddb58024f0",
-    "https://kvergasta.github.io/NotificationHub_APP/index.html": "550f436a8dbaadae3994c517b3a75f72140b0f0d",
-    "https://kvergasta.github.io/NotificationHub_APP/main.b12d36fcb09628c3ecb8.js": "58b6d286075dda4d155d3103b4ab8473071331ae",
+    "https://kvergasta.github.io/NotificationHub_APP/index.html": "818a635c1b2a66f2b545513214900dc4eb790c83",
+    "https://kvergasta.github.io/NotificationHub_APP/main.75a56628c91c39698d62.js": "6a647e4b3941fd3d491d45a14e346b730482ce66",
     "https://kvergasta.github.io/NotificationHub_APP/manifest.webmanifest": "72303d378166aaf1b6ef978909d3f178ab5c46c3",
     "https://kvergasta.github.io/NotificationHub_APP/polyfills.f02212b0e551c5fe3981.js": "b1452125947953666095a37e17a751ef04946bb0",
     "https://kvergasta.github.io/NotificationHub_APP/runtime.0ef482480e53f93f707c.js": "2833d82390e59a5b15c1c2e21a7e21075ff597b5",
